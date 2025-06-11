@@ -1,0 +1,9 @@
+version: 1
+services:
+  - name: discord-bot
+    type: build
+    build:
+      context: .
+      dockerfile: Dockerfile
+    run:
+      command: node index.js
