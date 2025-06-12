@@ -1,9 +1,0 @@
-version: 1
-services:
-  - name: zeppelin-discord-bot
-    type: build
-    build:
-      context: .
-      dockerfile: Dockerfile
-    run:
-      command: yarn start
