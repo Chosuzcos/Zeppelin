@@ -1,6 +1,39 @@
 prefix: "!"
 levels:
-  "1175809853332148376": 400
-  "1175782164592349214": 300
-  "1141650594105393152": 200
-  "1175782074918129674": 100
+  "1175809853332148376": 400  # サーバーオーナー
+  "1175782164592349214": 300  # モデレーターリーダー
+  "1141650594105393152": 200  # モデレーター
+  "1175782074918129674": 100  # トライアルモデレーター
+
+plugins:
+  auto_reactions:
+    can_manage: true
+    # 自動リアクションの管理権限を有効化
+
+  automod:
+    rules:
+      bad_words:
+        enabled: true  # 差別的または社会的に不適切な言葉の検出を有効化
+        triggers:
+          keywords:
+            # 過度な差別用語（軽度な悪口は除外）
+            words:
+              - "nigger"
+              - "faggot"
+              - "kike"
+              - "tranny"
+              - "retard"
+              - "chink"
+              - "spic"
+              - "gook"
+              - "dyke"
+              - "sandnigger"
+              - "towelhead"
+              - "cripple"
+              - "mongoloid"
+        actions:
+          - type: warn
+            reason: "差別的または不適切な発言"
+            notify: channel
+          - type: delete
+          - type: log
