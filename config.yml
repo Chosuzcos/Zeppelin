@@ -3,9 +3,9 @@ prefix: "!"
 levels:
   "1175809853332148376": 400  # サーバーオーナー
   "1175782164592349214": 300  # モデレーターリーダー
-  "1141650594105393152": 200  # モデレーター（フィルターバイパスあり）
+  "1141650594105393152": 200  # モデレーター
   "1175782074918129674": 100  # トライアルモデレーター
-  "1122092896594710599": 100  # botロール
+  "1122092896594710599": 100  # Bot
 
 plugins:
 
@@ -39,31 +39,24 @@ plugins:
         - warns: 3
           action: mute
           duration: "1d"
-          reason: ":warning: 警告 3 件: 1 日のミュート。"
         - warns: 4
           action: mute
           duration: "2d"
-          reason: ":warning: 警告 4 件: 2 日のミュート。"
         - warns: 5
           action: mute
           duration: "3d"
-          reason: ":warning: 警告 5 件: 3 日のミュート。"
         - warns: 6
           action: mute
           duration: "7d"
-          reason: ":hourglass_flowing_sand: 警告 6 件: 1 週間のミュート。"
         - warns: 7
           action: ban
-          duration: 3
-          reason: ":no_entry_sign: 警告 7 件: 3 日間の一時BAN。"
+          duration: "3d"
         - warns: 8
           action: ban
-          duration: 8
-          reason: ":no_entry_sign: 警告 8 件: 8 日間の一時BAN。"
+          duration: "8d"
         - warns: 10
           action: ban
-          duration: 0
-          reason: ":lock: 警告 10 件: 永久BAN。異議申し立て可能。"
+          duration: 0  # Permanent
 
   auto_reactions:
     enabled: true
@@ -78,7 +71,6 @@ plugins:
   mod_actions:
     enabled: true
     log_channel_id: "1288068409157750806"
-    case_auto_close_days: 30
     mod_roles:
       - "1175782164592349214"
       - "1141650594105393152"
@@ -90,13 +82,11 @@ plugins:
         max_warns: 3
       mute:
         enabled: true
-        duration: "10分"
+        duration: "10m"
       kick:
         enabled: true
-        reason: "ルール違反によるキック"
       ban:
         enabled: true
-        reason: "ルール違反によるバン"
         duration: 0
       auto_escalate:
         enabled: true
@@ -106,88 +96,13 @@ plugins:
     message_on_warn: true
     message_on_kick: true
     message_on_ban: true
-    message_channel: null
-    warn_message: '{guildName}サーバーで警告を受けました: {reason}'
-    kick_message: '{guildName}サーバーからキックされました。理由: {reason}'
-    ban_message: '{guildName}サーバーからバンされました。理由: {reason}'
-    tempban_message: '{guildName}サーバーから{banTime}間バンされました。理由: {reason}'
-    alert_on_rejoin: true
-    alert_channel: "1288068409157750806"
     warn_notify_enabled: true
     warn_notify_threshold: 5
-    warn_notify_message: |-
-      このユーザーはすでに**{priorWarnings}**件の警告を持っています！
-      過去のケースを確認し、警告を続けるか判断してください。
-      警告を発行しますか？
-    ban_delete_message_days: 1
-    attachment_link_reaction: warn
-    can_note: true
-    can_warn: true
-    can_mute: true
-    can_kick: true
-    can_ban: true
-    can_unban: true
-    can_view: true
-    can_addcase: true
-    can_massunban: true
-    can_massban: true
-    can_massmute: true
-    can_hidecase: true
-    can_deletecase: true
-    can_act_as_other: true
-    create_cases_for_manual_actions: true
+    alert_channel: "1288068409157750806"
 
   mutes:
     enabled: true
-    default_duration: "10分"
+    default_duration: "10m"
     notify_channel_id: "1288068409157750806"
     log_channel_id: "1288068409157750806"
     muted_role_id: "1287679657780449367"
-
-  utility:
-    can_roles: true
-    can_level: true
-    can_search: true
-    can_clean: true
-    can_info: true
-    can_server: true
-    can_inviteinfo: true
-    can_channelinfo: true
-    can_messageinfo: true
-    can_userinfo: true
-    can_roleinfo: true
-    can_emojiinfo: true
-    can_snowflake: true
-    can_reload_guild: true
-    can_nickname: true
-    can_ping: true
-    can_source: true
-    can_vcmove: true
-    can_vckick: true
-    can_help: true
-    can_about: true
-    can_context: true
-    can_jumbo: true
-    can_avatar: true
-    info_on_single_result: true
-    autojoin_threads: true
-    jumbo_size: 128
-
-  welcome_message:
-    enabled: true
-    channel_id: null
-    message: null
-    mention: false
-    image_enabled: false
-    image_url: null
-    dm_enabled: true
-    dm_message: |
-      🎉{user}さん、{guild}へようこそ！
-
-      サーバーをご利用いただく前に、まずは 📜 [ルール](https://discord.com/channels/1122080011822825475/1122083465895100516) をご確認ください。皆さまが快適に過ごせる環境を整えるため、必ずご一読ください。
-
-      📢 最新情報や告知は [こちら](https://discord.com/channels/1122080011822825475/1124285854890856458) をご確認ください。
-
-      🛡️ 認証手続き：
-      - 🔗 [認証チャンネル](https://discord.com/channels/1122080011822825475/1122090258897580082)
-      - 💻 [PC版ガイド](https://www.youtube.com/watch?v=SbDltmom1R8)
